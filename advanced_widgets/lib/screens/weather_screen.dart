@@ -41,6 +41,7 @@ class _WeatherScreenState extends State<WeatherScreen> with TickerProviderStateM
     'assets/images/cloudy.png',
     'assets/images/heavy-rain.png',
   ];
+  
   int rand = Random().nextInt(4);
   late AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 2),
