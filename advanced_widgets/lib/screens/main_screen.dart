@@ -1,3 +1,4 @@
+import 'package:advanced_widgets/screens/theme_cupertion_screen.dart';
 import 'package:advanced_widgets/screens/theme_screen.dart';
 import 'package:advanced_widgets/screens/weather_screen.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class _MainScreenState extends State<MainScreen> {
               onPressed: () {
                 Navigator.push(
                   context, MaterialPageRoute(
-                    builder: (context) => ThemeScreen()
+                    builder: (context) => ThemeCupertinoScreen()/*ThemeScreen()*/
                   )
                 );
               }, 
