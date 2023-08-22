@@ -1,7 +1,5 @@
 import 'package:advanced_widgets/screens/main_screen.dart';
 import 'package:advanced_widgets/screens/theme_cupertion_screen.dart';
-import 'package:advanced_widgets/screens/theme_screen.dart';
-import 'package:advanced_widgets/screens/weather_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
           create: (_) => ThemeProviderCupertino(),
         ),
       ],
-      child: MyHomeProvider(),
+      child: const MyHomeProvider(),
     );
   }
 }

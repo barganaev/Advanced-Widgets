@@ -2,7 +2,6 @@ import 'package:advanced_widgets/themes/cupertino_theme.dart';
 import 'package:advanced_widgets/themes/material_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 class ThemeCupertinoScreen extends StatefulWidget {
@@ -40,14 +39,14 @@ class _ThemeCupertinoScreenState extends State<ThemeCupertinoScreen> {
   Widget build(BuildContext context) {
     var themeCupertinoProvider = Provider.of<ThemeProviderCupertino>(context);
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(),
+      navigationBar: const CupertinoNavigationBar(),
       child: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text('Cupertino'),
+              const Text('Cupertino'),
               CupertinoButton(
-                child: Text("Button"), 
+                child: const Text("Button"), 
                 onPressed: () {
                   // themeCupertinoProvider.toggle(CustomBrightness.dark);
                   if (themeCupertinoProvider.brightness == CustomBrightness.dark) {
@@ -57,23 +56,17 @@ class _ThemeCupertinoScreenState extends State<ThemeCupertinoScreen> {
                   }
                 }
               ),
-              Text('Список погод'),
-              // Row(
-              //   children: [
-              //     TextField(),
-              //     ElevatedButton(onPressed: () {}, child: Text('asdf')),
-              //   ],
-              // ),
+              const Text('Список погод'),
               GridView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2
                 ), 
                 itemCount: 20,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     child: Card(
                       elevation: 5,
                       color: Colors.amber,
@@ -83,10 +76,10 @@ class _ThemeCupertinoScreenState extends State<ThemeCupertinoScreen> {
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Image.asset('${weatherState[index]}'),
+                              child: Image.asset(weatherState[index]),
                             )
                           ),
-                          Divider(),
+                          const Divider(),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text('${index + 1}'),
@@ -104,54 +97,6 @@ class _ThemeCupertinoScreenState extends State<ThemeCupertinoScreen> {
           ),
         )
       ),
-      
-      // drawer: Drawer(
-      //   child: ListView(
-      //     children: [
-      //       const DrawerHeader(
-      //         decoration: BoxDecoration(
-      //           color: Colors.blue,
-      //         ),
-      //         child: Text('Shakenti Balakenti'),
-      //       ),
-      //       ListTile(
-      //         onTap: () {
-      //           Navigator.push(context, MaterialPageRoute(builder: (context) {
-      //             return Scaffold(
-      //               appBar: AppBar(
-      //                 title: const Text('Theme changer'),
-      //               ),
-      //               body: Column(
-      //                 children: [
-  
-      //                   // Theme changer test button widget
-      //                   Center(
-      //                     child: ElevatedButton(
-      //                       onPressed: () {
-      //                         if (val.brightness == CustomBrightness.dark) {
-      //                           val.toggle(CustomBrightness.light);
-      //                         } else {
-      //                           val.toggle(CustomBrightness.dark);
-      //                         }
-      //                         // toggle(); // Change app theme color!
-      //                       },
-      //                       child: Icon(Icons.language),
-      //                     ),
-      //                   ),
-      //                 ],
-      //               ),
-      //             );
-      //           }));
-      //         },
-      //         title: const Text('Item 1'),
-      //       ),
-      //       ListTile(
-      //         title: const Text('Item 2'),
-      //       )
-      //     ],
-      //   ),
-      // ),
-
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:advanced_widgets/screens/theme_cupertion_screen.dart';
-import 'package:advanced_widgets/screens/theme_screen.dart';
 import 'package:advanced_widgets/screens/weather_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -23,20 +22,20 @@ class _MainScreenState extends State<MainScreen> {
               onPressed: () {
                 Navigator.push(
                   context, MaterialPageRoute(
-                    builder: (context) => WeatherScreen()
+                    builder: (context) => const WeatherScreen()
                   )
                 );
               }, 
-              child: Text('Weather Screen')),
+              child: const Text('Weather Screen')),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context, MaterialPageRoute(
-                    builder: (context) => ThemeCupertinoScreen()/*ThemeScreen()*/
+                    builder: (context) => const ThemeCupertinoScreen()/*ThemeScreen()*/
                   )
                 );
               }, 
-              child: Text('Application Theme')),
+              child: const Text('Application Theme')),
           ],
         ),
       ),

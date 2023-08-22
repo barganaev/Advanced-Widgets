@@ -11,7 +11,7 @@ class WeatherScreen extends StatefulWidget {
 class _WeatherScreenState extends State<WeatherScreen> with TickerProviderStateMixin {
   bool visible = false;
   int cnt = 0;
-  List<List<Color>> gradientColors = [
+  List<List<Color>> gradientColors = const [
     [
     Color(0xff1f005c),
     Color(0xff5b0060),
@@ -43,13 +43,13 @@ class _WeatherScreenState extends State<WeatherScreen> with TickerProviderStateM
   ];
   
   int rand = Random().nextInt(4);
-  late AnimationController _controller = AnimationController(
+  late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 2),
     vsync: this
   )..repeat(reverse: true);
   late AnimationController _controller1;
   double _iconSize = 80.0;
-  late Animation<double> _animation = CurvedAnimation(
+  late final Animation<double> _animation = CurvedAnimation(
     parent: _controller, 
     curve: Curves.easeIn,
   );
@@ -59,7 +59,7 @@ class _WeatherScreenState extends State<WeatherScreen> with TickerProviderStateM
       super.initState();
       _controller1 = AnimationController(
         vsync: this,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
       );
     }
 
@@ -87,14 +87,10 @@ class _WeatherScreenState extends State<WeatherScreen> with TickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    const double smallLogo = 100;
-    const double bigLogo = 200;
-
     return SafeArea(
       child: Scaffold(
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-            final Size biggest = constraints.biggest;
             return Container(
               decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -108,7 +104,7 @@ class _WeatherScreenState extends State<WeatherScreen> with TickerProviderStateM
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       vertical: 40
                     ),
                     child: ElevatedButton(onPressed: () {
@@ -120,7 +116,7 @@ class _WeatherScreenState extends State<WeatherScreen> with TickerProviderStateM
                         }
                       });
                     }, 
-                    child: Text('Switch')),
+                    child: const Text('Switch')),
                   ),
                 ),
                   
@@ -131,7 +127,7 @@ class _WeatherScreenState extends State<WeatherScreen> with TickerProviderStateM
                     GestureDetector(
                       onTap: _resizeIcon,
                       child: Padding(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           top: 30,
                           right: 30,
                           left: 30
@@ -139,11 +135,11 @@ class _WeatherScreenState extends State<WeatherScreen> with TickerProviderStateM
                         child: Align(
                           alignment: Alignment.topRight,
                           child: AnimatedContainer(
-                            duration: Duration(milliseconds: 500),
+                            duration: const Duration(milliseconds: 500),
                             width: _iconSize,
                             height: _iconSize,
                             child: Image.asset(
-                              '${weatherState[cnt]}',
+                              weatherState[cnt],
                             ),
                           ),
                         ),
@@ -160,7 +156,7 @@ class _WeatherScreenState extends State<WeatherScreen> with TickerProviderStateM
                           border: Border.all(color: Colors.yellowAccent)
                         ),
                         child: Text(
-                          '${weatherData[cnt]}',
+                          weatherData[cnt],
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: MediaQuery.of(context).size.width * 0.05
